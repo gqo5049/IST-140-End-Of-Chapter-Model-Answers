@@ -1,43 +1,37 @@
-public class Main
-{
-   public static int getSecondLargest(int[] arr) {
-      // One way to do it: Find maximum once.
-      int max = arr[0];
+public class Main {
 
-      for (int i = 1; i < size; i++) {
-         if (arr[i] > max) {
-            max = arr[i];
-         }
-      }
+    public static void main(String[] args) {
+        int[] randoms = new int[10];
 
-      // 2. Find the max again, ignoring the real max.
-      int oldMax = max;
-      max = arr[0];
+        // Create a test array containing random numbers.
+        for (int i = 0; i < randoms.length; i++) {
+            randoms[i] = (int) (Math.random() * 100) + 1;
+            // Print the values as they are assigned.
+            System.out.print(randoms[i] + " ");
+        }
+        System.out.println();
 
-      for (int i = 1; i < size; i++) {
-         if (arr[i] != oldMax) {
-            if (arr[i] > max) {
-               max = arr[i];
+        // Find the second largest.
+        int max = randoms[0];
+
+        for (int i = 1; i < randoms.length; i++) {
+            if (randoms[i] > max) {
+                max = randoms[i];
             }
-         }
-      }
-      return max;
+        }
 
-   }
+        // 2. Find the max again, ignoring the real max.
+        int oldMax = max;
+        max = randoms[0];
 
-   public static void main(String[] args) {
-      int[] randoms = new int[10];
+        for (int i = 1; i < randoms.length; i++) {
+            if (randoms[i] != oldMax) {
+                if (randoms[i] > max) {
+                    max = randoms[i];
+                }
+            }
+        }
 
-      // Create a test array containing random numbers.
-      for (int i = 0; i < randoms.length; i++) {
-         randoms[i] = (int) (Math.random() * 100) + 1;
-         // Print the values as they are assigned.
-         System.out.print(randoms[i] + " ");
-      }
-      System.out.println();
-
-      // Find the second largest.
-      System.out.println("The second largest number is " +
-              +getSecondLargest(randoms));
-   }
+        System.out.println("The second largest number is " + max);
+    }
 }
